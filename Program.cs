@@ -3,15 +3,13 @@
 // run both to preview the PDF in real time
 
 
-using QuestPDF.Companion;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
 QuestPDF.Settings.License = LicenseType.Community;
 
-
-Document.Create(container =>
+var pdf = Document.Create(container =>
 {
     container.Page(page =>
     {
@@ -70,6 +68,7 @@ Document.Create(container =>
                 text.TotalPages();
             });
 });
-}).ShowInCompanion();
+}).GeneratePdf();
+//.ShowInCompanion
 //.ShowInPreviewer is now obsolete
 // https://www.questpdf.com/
